@@ -7,6 +7,14 @@ import { FooterComponent } from './footer/footer.component';
 import { DirectivaComponent } from './directiva/directiva.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { ClientesService } from './clientes/clientes.service';
+import { RouterModule,Routes } from '@angular/router';
+
+/** Rutas url de los componentes de la aplicacion */
+const routes : Routes=[
+  {path:'', redirectTo:'/clientes',pathMatch:'full'},
+  {path:'directivas', component:DirectivaComponent},
+  {path:'clientes', component:ClientesComponent},
+];
 
 @NgModule({
   declarations: [
@@ -17,7 +25,8 @@ import { ClientesService } from './clientes/clientes.service';
     ClientesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [ClientesService],
   bootstrap: [AppComponent]
